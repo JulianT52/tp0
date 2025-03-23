@@ -20,7 +20,7 @@ int main(void)
 
 	//log_warning (logger, "Hola, soy un Warning");
 	//log_error(logger, "Hola, soy un Error");
-	
+	//Terminado
 
 	// Usando el logger creado previamente
 	// Escribi: "Hola! Soy un log"
