@@ -15,6 +15,12 @@ int main(void)
 	/* ---------------- LOGGING ---------------- */
 
 	logger = iniciar_logger();
+	
+	log_info(logger, "Hola, soy un log");
+
+	//log_warning (logger, "Hola, soy un Warning");
+	//log_error(logger, "Hola, soy un Error");
+	
 
 	// Usando el logger creado previamente
 	// Escribi: "Hola! Soy un log"
@@ -54,7 +60,7 @@ int main(void)
 
 t_log* iniciar_logger(void)
 {
-	t_log* nuevo_logger;
+	t_log* nuevo_logger = log_create ("tp0.log", "Tp0", true ,LOG_LEVEL_INFO);
 
 	return nuevo_logger;
 }
