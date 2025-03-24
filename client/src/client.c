@@ -30,7 +30,11 @@ int main(void)
 
 	config = iniciar_config();
 	valor = config_get_string_value(config, "CLAVE");
+	ip = config_get_string_value(config, "IP");
+	puerto = config_get_string_value (config, "PUERTO");
 	log_info(logger, valor);
+	log_info(logger, ip);
+	log_info(logger, puerto);
 
 	// Usando el config creado previamente, leemos los valores del config y los 
 	// dejamos en las variables 'ip', 'puerto' y 'valor'
@@ -78,10 +82,17 @@ t_config* iniciar_config(void)
 void leer_consola(t_log* logger)
 {
 	char* leido;
-
-	// La primera te la dejo de yapa
+      // La primera te la dejo de yapa
 	leido = readline("> ");
+	while (strcmp(leido, "") != 0)
+	{
+		log_info(logger, leido);
+		leido = readline("> ");
+		
+	}
 
+	free(leido);
+	
 	// El resto, las vamos leyendo y logueando hasta recibir un string vacío
 
 
