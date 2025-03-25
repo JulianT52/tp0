@@ -39,7 +39,7 @@ int crear_conexion(char *ip, char* puerto)
 
 	freeaddrinfo(server_info);
 
-	return socket_cliente;
+	return fd_conexion;
 }
 
 void enviar_mensaje(char* mensaje, int socket_cliente)
@@ -55,7 +55,7 @@ void enviar_mensaje(char* mensaje, int socket_cliente)
 	int bytes = paquete->buffer->size + 2*sizeof(int);
 
 	void* a_enviar = serializar_paquete(paquete, bytes);
-
+    
 	send(socket_cliente, a_enviar, bytes, 0);
 
 	free(a_enviar);

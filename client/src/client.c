@@ -54,8 +54,8 @@ int main(void)
 	conexion = crear_conexion(ip, puerto);
 
 	// Enviamos al servidor el valor de CLAVE como mensaje
-	int socket_cliente = 0;
-    enviar_mensaje (valor, socket_cliente);
+	log_info(logger, "Enviando mensaje a la conexion %d", conexion);
+    enviar_mensaje (valor, conexion);
 	// Armamos y enviamos el paquete
 	paquete(conexion);
 	
@@ -96,8 +96,6 @@ void leer_consola(t_log* logger)
 	free(leido);
 	
 	// El resto, las vamos leyendo y logueando hasta recibir un string vacío
-
-
 	// ¡No te olvides de liberar las lineas antes de regresar!
 
 }
